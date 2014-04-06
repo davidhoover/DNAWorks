@@ -1,0 +1,432 @@
+# DNAWORKS.inp sample
+# David Hoover, 2010-11-09
+# 
+# Directives must be flat against the left margin
+#
+# Comments demarcated by '#'.  All text following # is ignored.
+#
+# $I = integer
+# $R = real, floating point number
+# $S = string (must be in double quotes)
+# [ ] = optional
+# | = exclusive conditional
+#
+# title $S
+# title "" # default
+#  TITLE "mutant1"
+#  TITLE "test2" 
+#  TITLE "mutant2" 
+
+# email $S
+#  EMAIl "webtools@helix.nih.gov"
+
+# melting low $I [ high $I ] [ tolerance $I ]
+# melting low 62 # default
+melting low 75 # default
+
+# length low $I [ high $I ] [ random ]
+# length low 40 # default
+length low 180 # default
+
+# frequency [ threshold $I ] [ random ] [ strict ] [ scored ]
+# frequency threshold 10 # default
+
+# concentration [ oligo $R ] [ sodium $R ] [ magnesium $R ]
+# concentration oligo 1E-7 sodium 0.05 magnesium 0.002 # default
+
+# solutions $I
+# solutions 1 # default
+
+# repeat $I
+# repeat 8 # default
+
+# misprime $I [ tip $I ] [ max $I ]
+# misprime 18 tip 6 max 8 # default
+
+# weight [ twt #R ] [ cwt #R ] [ rwt #R ] [ mwt #R ] [ gwt #R ] [ awt #R ] [ lwt #R ] [ pwt #R ] [ fwt #R ]
+# weight twt 1.0 cwt 1.0 rwt 1.0 mwt 1.0 gwt 1.0 awt 1.0 lwt 1.0 pwt 1.0 fwt 1.0 # default
+
+# tbio
+# nogaps
+# logfile $S
+# logfile "LOGFILE.txt" # default
+#  LOGFILE "MyOutput.txt"  
+#  LOGFILE "mutant1.out"
+
+# previous $I [ $S ]
+# previous 1 "LOGFILE.txt" # default
+#
+# Mutant run:
+#  PREVious 1
+#  PREVious 1 "mutant1.out"
+#
+
+# pattern
+#   AflII CTTAAG
+#   BamHI GGATCC
+# //
+
+codon ecoli2
+
+# protein #reverse #gapfix
+#protein
+#  pattdkslkd iliqgtknlp ileiasnnqp qnvdsvcsgt lqktedvhlm 
+#  gftlsgqkva dspleaskrw afrtgvppkn veytegeeak tcynisvtdp 
+#//
+
+# nucleotide #reverse #gapfix
+#   gagctcggat ccactactcg acccacgcgt ccgcccacgc gtccggccag gacctctgtg
+#   aaccggtcgg ggcgggggcc gcctggccgg gagtctgctc ggcggtgggt ggccgaggaa
+#   gggagagaac gatcgcggag cagggcgccc gaactccggg cgccgcgcca tgcgccgggc
+#   cagccgagac tacggcaagt acctgcgcag ctcggaggag atgggcagcg gccccggcgt
+#   cccacacgag ggtccgctgc accccgcgcc ttctgcaccg gctccggcgc cgccacccgc
+#   cgcctcccgc tccatgttcc tggccctcct ggggctggga ctgggccagg tggtctgcag
+#   catcgctctg ttcctgtact ttcgagcgca gatggatcct aacagaatat cagaagacag
+#   cactcactgc ttttatagaa tcctgagact ccatgaaaac gcaggtttgc aggactcgac
+#   tctggagagt gaagacacac tacctgactc ctgcaggagg atgaaacaag cctttcaggg
+#   ggccgtgcag aaggaactgc aacacattgt ggggccacag cgcttctcag gagctccagc
+#   tatgatggaa ggctcatggt tggatgtggc ccagcgaggc aagcctgagg cccagccatt
+#   tgcacacctc accatcaatg ctgccagcat cccatcgggt tcccataaag tcactctgtc
+#   ctcttggtac cacgatcgag gctgggccaa gatctctaac atgacgttaa gcaacggaaa
+#   actaagggtt aaccaagatg gcttctatta cctgtacgcc aacatttgct ttcggcatca
+#   tgaaacatcg ggaagcgtac ctacagacta tcttcagctg atggtgtatg tcgttaaaac
+#   cagcatcaaa atcccaagtt ctcataacct gatgaaagga gggagcacga aaaactggtc
+#   gggcaattct gaattccact tttattccat aaatgttggg ggatttttca agctccgagc
+#   tggtgaagaa attagcattc aggtgtccaa cccttccctg ctggatccgg atcaagatgc
+#   gacgtacttt ggggctttca aagttcagga catagactga gactcatttc gtggaacatt
+# //
+#
+#
+#
+#-------------------------------------------------------------------------------
+# OTHER EXAMPLES:
+#-------------------------------------------------------------------------------
+
+# Nucleotide examples:
+#
+# NUCL
+#   CCATG
+# //
+#
+# NUCL
+#   GGGTTC
+# //
+#
+# NUCL
+#    1 CCATGGCGGCTGGTCAGGCGTTCCGTAAATTCCTGCCGCTGTTCGACCGTGTTCTCGTGG
+#   61 AACGCTCTGAAGTTGAAACC
+# //
+#
+# NUCL
+#   RRW
+# //
+#
+# NUCL REVERSE
+#   TCTGCGGGTGGTATCGTGCTGACCGGTTCTGCGGCTG
+#  121 CGAAAGTGCTGCAGGCGACCGTTGTTGCGGTTGGTTCTGGTTCTAAAGGTAAAGGTGGT
+# //
+#
+# NUCL GAPFIX
+#  NNN
+# //
+#
+# NUCL
+# ATCCAGCCGGTTTCTGTTAAGGTTGGTGACAAAGTTCTGCTGCCGGAATACGGCGGTA
+#  241 CCAAAGTTGTTCTGGACGACAAAGACTACTTCCTGTTCCGTGACGGTGACATCCTGGGTA
+#  301 AGTACGTTGACTAAGGGTTC
+# //
+#
+# Protein examples:
+#
+# PROT
+#   AAGQAFRKFLPLFDRVLVERSEVET
+# //
+#
+# PROT GAPFIX
+#   K
+# //
+#
+# PROT
+#   SAGGIVLTGSAAAKVLQATVVAVGSGSKGKGG
+# //
+#
+# PROT GAPFIX
+#   E
+# //
+#
+# PROT
+#   IQPVSVKVGDKVLLPEYGGTKVVLDDKDYFLFRDGDILGKYVDX
+# //
+#
+# Pattern examples:
+#
+# PATTern
+#   EcoRI       GAATTC
+#   PstI        CtgcaG
+#   BamHI       GGATCC
+#   KpnI        GGTACC
+#    NdeI        CATATG
+#    PvuII       CAGCTG
+#    SwaI        ATTTAAAT
+#    FseI        GGCCGGCC
+#    NotI        GCGGCCGC
+#    NcoI        CCATGG
+#    silly   RWGGTcGRY  
+# //
+#
+# Codon Frequency Tables:
+#
+# CODOn S. cerevesiae 
+#
+# CODOn E. coli 
+#
+# CODOn ecoli2 
+#
+# CODOn 
+#Gly     GGG     40359.00     11.39      0.16
+#Gly     GGA     34894.00      9.85      0.13
+#Gly     GGT     89915.00     25.37      0.35
+#Gly     GGC     94608.00     26.70      0.36
+#Glu     GAG     66665.00     18.81      0.33
+#Glu     GAA    137748.00     38.87      0.67
+#Asp     GAT    116164.00     32.78      0.63
+#Asp     GAC     67865.00     19.15      0.37
+#Val     GTG     85263.00     24.06      0.34
+#Val     GTA     41283.00     11.65      0.17
+#Val     GTT     70627.00     19.93      0.29
+#Val     GTC     50417.00     14.23      0.20
+#Ala     GCG    104293.00     29.43      0.32
+#Ala     GCA     75329.00     21.26      0.23
+#Ala     GCT     60787.00     17.15      0.19
+#Ala     GCC     85138.00     24.03      0.26
+#Arg     AGG      7966.00      2.25      0.04
+#Arg     AGA     13784.00      3.89      0.07
+#Ser     AGT     35966.00     10.15      0.16
+#Ser     AGC     53286.00     15.04      0.24
+#Lys     AAG     45133.00     12.74      0.26
+#Lys     AAA    125351.00     35.37      0.74
+#Asn     AAT     75086.00     21.19      0.50
+#Asn     AAC     75334.00     21.26      0.50
+#Met     ATG     92952.00     26.23      1.00
+#Ile     ATA     25982.00      7.33      0.12
+#Ile     ATT    105218.00     29.69      0.49
+#Ile     ATC     83118.00     23.46      0.39
+#Thr     ACG     48560.00     13.70      0.25
+#Thr     ACA     34483.00      9.73      0.17
+#Thr     ACT     37430.00     10.56      0.19
+#Thr     ACC     77023.00     21.74      0.39
+#Trp     TGG     48949.00     13.81      1.00
+#End     TGA      3616.00      1.02      0.31
+#Cys     TGT     18601.00      5.25      0.46
+#Cys     TGC     21434.00      6.05      0.54
+#End     TAG       978.00      0.28      0.08
+#End     TAA      7024.00      1.98      0.60
+#Tyr     TAT     62750.00     17.71      0.59
+#Tyr     TAC     43034.00     12.14      0.41
+#Leu     TTG     45581.00     12.86      0.13
+#Leu     TTA     51320.00     14.48      0.14
+#Phe     TTT     78743.00     22.22      0.58
+#Phe     TTC     56591.00     15.97      0.42
+#Ser     TCG     29993.00      8.46      0.13
+#Ser     TCA     32814.00      9.26      0.15
+#Ser     TCT     37586.00     10.61      0.17
+#Ser     TCC     32586.00      9.20      0.15
+#Arg     CGG     21391.00      6.04      0.11
+#Arg     CGA     13645.00      3.85      0.07
+#Arg     CGT     70009.00     19.76      0.36
+#Arg     CGC     68569.00     19.35      0.35
+#Gln     CAG    100346.00     28.32      0.66
+#Gln     CAA     51275.00     14.47      0.34
+#His     CAT     44633.00     12.60      0.58
+#His     CAC     32678.00      9.22      0.42
+#Leu     CTG    168885.00     47.66      0.47
+#Leu     CTA     15275.00      4.31      0.04
+#Leu     CTT     42704.00     12.05      0.12
+#Leu     CTC     35873.00     10.12      0.10
+#Pro     CCG     72450.00     20.44      0.49
+#Pro     CCA     30515.00      8.61      0.21
+#Pro     CCT     26805.00      7.56      0.18
+#Pro     CCC     19008.00      5.36      0.13
+#//
+
+
+#-------------------------------------------------------------------------------
+# MORE EXAMPLES TO TRY:
+#-------------------------------------------------------------------------------
+
+#NUCLeotide 
+#        1 gagctcggat ccactactcg acccacgcgt ccgcccacgc gtccggccag gacctctgtg
+#       61 aaccggtcgg ggcgggggcc gcctggccgg gagtctgctc ggcggtgggt ggccgaggaa
+#      121 gggagagaac gatcgcggag cagggcgccc gaactccggg cgccgcgcca tgcgccgggc
+#      181 cagccgagac tacggcaagt acctgcgcag ctcggaggag atgggcagcg gccccggcgt
+#      241 cccacacgag ggtccgctgc accccgcgcc ttctgcaccg gctccggcgc cgccacccgc
+#      301 cgcctcccgc tccatgttcc tggccctcct ggggctggga ctgggccagg tggtctgcag
+#      361 catcgctctg ttcctgtact ttcgagcgca gatggatcct aacagaatat cagaagacag
+#      421 cactcactgc ttttatagaa tcctgagact ccatgaaaac gcaggtttgc aggactcgac
+#      481 tctggagagt gaagacacac tacctgactc ctgcaggagg atgaaacaag cctttcaggg
+#      541 ggccgtgcag aaggaactgc aacacattgt ggggccacag cgcttctcag gagctccagc
+#      601 tatgatggaa ggctcatggt tggatgtggc ccagcgaggc aagcctgagg cccagccatt
+#      661 tgcacacctc accatcaatg ctgccagcat cccatcgggt tcccataaag tcactctgtc
+#      721 ctcttggtac cacgatcgag gctgggccaa gatctctaac atgacgttaa gcaacggaaa
+#      781 actaagggtt aaccaagatg gcttctatta cctgtacgcc aacatttgct ttcggcatca
+#      841 tgaaacatcg ggaagcgtac ctacagacta tcttcagctg atggtgtatg tcgttaaaac
+#      901 cagcatcaaa atcccaagtt ctcataacct gatgaaagga gggagcacga aaaactggtc
+#      961 gggcaattct gaattccact tttattccat aaatgttggg ggatttttca agctccgagc
+#     1021 tggtgaagaa attagcattc aggtgtccaa cccttccctg ctggatccgg atcaagatgc
+#     1081 gacgtacttt ggggctttca aagttcagga catagactga gactcatttc gtggaacatt
+#//
+
+
+
+#NUCLeotide REVERSE
+#      361 tttcccagtc acgacgttgt aaaacgacgg ccagtgccaa gcttgcatgc ctgcaggtcg
+#      421 actctagagg atccccgggt accgagctcg aattcgtaat catggtcata gctgtttcct
+#//
+
+#PROTein gapfix
+#RRRRR
+#//
+
+#NUCLeotide
+#GTAGCGACTAGCAT
+#//
+
+#NUCLeotide
+#      361 tttcccagtc acgacgttgt aaaacgacgg ccagtgccaa gcttgcatgc ctgcaggtcg
+#      421 actctagagg atccccgggt accgagctcg aattcgtaat catggtcata gctgtttcct
+#//
+
+#PROTein REVERSE (hBD2)
+#  GIGDPVTCLDCGAISHPVFCPDRYKQIGTCGLPGTKCCKKPXX
+#//
+
+#NUCLeotide gapfix
+#TGATGATTATTA
+#//
+
+#PROTein
+#  KVFGDCELAAAMKRHGLDNYRGYSLGNWVCAAKFESNFNTQATNRNTDGSTDYGILQINS
+#  RWWCNDGRTPGSRNLCNIPCSALLSSDITASVNCAKKIVSDGNGMNAWVAWRNRCKGTDV
+#  XX
+#//
+
+#NUCLeotide gapfix
+#TAGAAAACGC
+#//
+
+
+#PROTein (GFP)
+#  1 mskgeelftg vvpilveldg dvnghkfsvs gegegdatyg kltlkfictt gklpvpwptl
+# 61 vttfsygvqc fsrypdhmkq hdffksampe gyvqertiff kddgnyktra evkfegdtlv
+#121 nrielkgidf kedgnilghk leynynshnv yimadkqkng ikvnfkirhn iedgsvqlad
+#281 hyqqntpigd gpvllpdnhy lstqsalskd pnekrdhmvl lefvtaagit hgmdelyk
+#//
+
+#NUCLeotide (GFP)
+#   1 GGGGGGGGGGGTGAAGAACTGTTCACCGGCGTTGTTCCGATCCTGGTTGAACTGGATGGT
+#  61 GACGTGAATGGTCACAAATTCTCTGTTTCTGGTGAGGGTGAAGGCGACGCGACCTACGGC
+# 121 AAACTCACCCTGAAATTCATCTGCACCACCGGTAAACTGCCGGTTCCGTGGCCGACCCTG
+# 181 GTTACCACCTTCTCTTACGGTGTTCAGTGTTTCTCTCGTTATCCGGACCACATGAAACAG
+# 241 CACGATTTTTTCAAATCTGCGATGCCGGAAGGTTACGTTCAGGAACGTACCATCTTCTTC
+# 301 AAGGACGACGGCAACTATAAAACCCGTGCGGAAGTTAAATTCGAAGGTGACACCCTCGTG
+# 361 AACCGTATCGAACTGAAAGGTATCGACTTCAAAGAAGACGGTAATATCCTGGGCCACAAA
+# 421 CTCGAATACAACTACAACTCCCACAACGTTTACATTATGGCGGACAAGCAAAAGAACGGT
+# 481 ATCAAAGTGAACTTCAAGATCCGCCACAACATCGAGGACGGTTCTGTTCAGCTCGCGGAT
+# 541 CACTACCAACAGAATACCCCAATCGGCGACGGTCCGGTTCTCCTGCCGGACAACCACTAT
+# 601 CTGTCTACCCAGTCTGCGCTGTCTAAGGACCCGAACGAAAAACGCGATCATATGGTGCTG
+# 661 CTGGAATTCGTTACCGCGGCTGGTATTACTCACGGTATGGACGAACTGTACAAA
+#//
+
+#PROTein (Ovalbumin)
+#  1 gsigaasmef cfdvfkelkv hhanenifyc piaimsalam vylgakdstr tqinkvvrfd
+# 61 klpgfgdxie aqcgtsvnvh sslrdilnqi tkpndvysfs lasrlyaeer ypilpeylqc
+#121 vkelyrggle pinfqtaadq arelinswve sqtngiirnv lqpxsvdsqt amvlvnaivf
+#181 kglwekafkd edtqampfrv teqeskpvqm myqiglfrva smasekmkil elpfaxgtms
+#241 mlvllpdevs gleqlesiin fekltewtss nvmeerkikv ylprmkmeek ynltsvlmam
+#301 gitdvfsssa nlsgissaex lkisqavhaa haeineagre vvgxaeagvd aasvseefra
+#361 dhpflfcikh iatnavlffg rcvsp
+#//
+
+#PROTein (Human Asparaginase) REVERSE
+#  1 MAHHHHHHAR AVGPERRLLA VYTGGTIGMR SELGVLVPGT GLAAILRTLP MFHDEEHARA
+# 61 RGLSEDTLVL PPDSRNQRIL YTVLECQPLF DSSDMTIAEW VRVAQTIKRH YEQYHGFVVI
+#121 HGTDTMAFAA SMLSFMLENL QKTVILTGAQ VPIHALWSDG RENLLGALLM AGQYVIPEVC
+#181 LFFQNQLFRG NRATKVDARR FAAFCSPNLL PLATVGADIT INRELVRKVD GKAGLVVHSS
+#241 MEQDVGLLRL YPGIPAALVR AFLQPPLKGV VMETFGSGNG PTKPDLLQEL RVATERGLVI
+#301 VNCTHCLQGA VTTDYAAGMA MAGAGVISGF DMTSEAALAK LSYVLGQPGL SLDVRKELLT
+#361 KDLRGEMTPP SVEERRPSLQ GNTLGGGVSW LLSLSGSQEA DALRNALVPS LACAAAHAGD
+#421 VEALQALVEL GSDLGLVDFN GQTPLHAAAR GGHTEAVTML LQRGVDVNTR DTDGFSPLLL
+#481 AVRGRHPGVI GLLREAGASL STQELEEAGT ELCRLAYRAD LEGLQVWWQA GADLGQPGYD
+#541 GHSALHVAEA AGNLAVVAFL QSLEGAVGAQ APCPEVLPGV X
+#//
+
+PROTein (lysine ketoglutarate reductase/saccharopine dehydrogenase)
+  1 MLQVHRTGLG RLGVSLSKGL HHKAVLAVRR EDVNAWERRA PLAPKHIKGI TNLGYKVLIQ
+ 61 PSNRRAIHDK DYVKAGGILQ EDISEACLIL GVKRPPEEKL MSRKTYAFFS HTIKAQEANM
+121 GLLDEILKQE IRLIDYEKMV DHRGVRVVAF GQWAGVAGMI NILHGMGLRL LALGHHTPFM
+181 HIGMAHNYRN SSQAVQAVRD AGYEISLGLM PKSIGPLTFV FTGTGNVSKG AQAIFNELPC
+241 EYVEPHELKE VSQTGDLRKV YGTVLSRHHH LVRKTDAVYD PAEYDKHPER YISRFNTDIA
+301 PYTTCLINGI YWEQNTPRLL TRQDAQSLLA PGKFSPAGVE GCPALPHKLV AICDISADTG
+361 GSIEFMTECT TIEHPFCMYD ADQHIIHDSV EGSGILMCSI DNLPAQLPIE ATECFGDMLY
+421 PYVEEMILSD ATQPLESQNF SPVVRDAVIT SNGTLPDKYK YIQTLRESRE RAQSLSMGTR
+481 RKVLVLGSGY ISEPVLEYLS RDGNIEITVG SDMKNQIEQL GKKYNINPVS MDICKQEEKL
+541 GFLVAKQDLV ISLLPYVLHP LVAKACITNK VNMVTASYIT PALKELEKSV EDAGITIIGE
+601 LGLDPGLDHM LAMETIDKAK EVGATIESYI SYCGGLPAPE HSNNPLRYKF SWSPVGVLMN
+661 VMQSATYLLD GKVVNVAGGI SFLDAVTSMD FFPGLNLEGY PNRDSTKYAE IYGISSAHTL
+721 LRGTLRYKGY MKALNGFVKL GLINREALPA FRPEANPLTW KQLLCDLVGI SPSSEHDVLK
+781 EAVLKKLGGD NTQLEAAEWL GLLGDEQVPQ AESILDALSK HLVMKLSYGP EEKDMIVMRD
+841 SFGIRHPSGH LEHKTIDLVA YGDINGFSAM AKTVGLPTAM AAKMLLDGEI GAKGLMGPFS
+901 KEIYGPILER IKAEGIIYTT QSTIKPX
+//
+
+#NUCLeotide
+#GGGG
+#//
+
+#NUCLeotide (pUC18)
+#        1 tcgcgcgttt cggtgatgac ggtgaaaacc tctgacacat gcagctcccg gagacggtca
+#       61 cagcttgtct gtaagcggat gccgggagca gacaagcccg tcagggcgcg tcagcgggtg
+#      121 ttggcgggtg tcggggctgg cttaactatg cggcatcaga gcagattgta ctgagagtgc
+#      181 accatatgcg gtgtgaaata ccgcacagat gcgtaaggag aaaataccgc atcaggcgcc
+#      241 attcgccatt caggctgcgc aactgttggg aagggcgatc ggtgcgggcc tcttcgctat
+#      301 tacgccagct ggcgaaaggg ggatgtgctg caaggcgatt aagttgggta acgccagggt
+#      361 tttcccagtc acgacgttgt aaaacgacgg ccagtgccaa gcttgcatgc ctgcaggtcg
+#      421 actctagagg atccccgggt accgagctcg aattcgtaat catggtcata gctgtttcct
+#      481 gtgtgaaatt gttatccgct cacaattcca cacaacatac gagccggaag cataaagtgt
+#      541 aaagcctggg gtgcctaatg agtgagctaa ctcacattaa ttgcgttgcg ctcactgccc
+#      601 gctttccagt cgggaaacct gtcgtgccag ctgcattaat gaatcggcca acgcgcgggg
+#      661 agaggcggtt tgcgtattgg gcgctcttcc gcttcctcgc tcactgactc gctgcgctcg
+#      721 gtcgttcggc tgcggcgagc ggtatcagct cactcaaagg cggtaatacg gttatccaca
+#      781 gaatcagggg ataacgcagg aaagaacatg tgagcaaaag gccagcaaaa ggccaggaac
+#      841 cgtaaaaagg ccgcgttgct ggcgtttttc cataggctcc gcccccctga cgagcatcac
+#      901 aaaaatcgac gctcaagtca gaggtggcga aacccgacag gactataaag ataccaggcg
+#      961 tttccccctg gaagctccct cgtgcgctct cctgttccga ccctgccgct taccggatac
+#     1021 ctgtccgcct ttctcccttc gggaagcgtg gcgctttctc atagctcacg ctgtaggtat
+#     1081 ctcagttcgg tgtaggtcgt tcgctccaag ctgggctgtg tgcacgaacc ccccgttcag
+#     1141 cccgaccgct gcgccttatc cggtaactat cgtcttgagt ccaacccggt aagacacgac
+#     1201 ttatcgccac tggcagcagc cactggtaac aggattagca gagcgaggta tgtaggcggt
+#     1261 gctacagagt tcttgaagtg gtggcctaac tacggctaca ctagaaggac agtatttggt
+#     1321 atctgcgctc tgctgaagcc agttaccttc ggaaaaagag ttggtagctc ttgatccggc
+#     1381 aaacaaacca ccgctggtag cggtggtttt tttgtttgca agcagcagat tacgcgcaga
+#     1441 aaaaaaggat ctcaagaaga tcctttgatc ttttctacgg ggtctgacgc tcagtggaac
+#     1501 gaaaactcac gttaagggat tttggtcatg agattatcaa aaaggatctt cacctagatc
+#     1561 cttttaaatt aaaaatgaag ttttaaatca atctaaagta tatatgagta aacttggtct
+#     1621 gacagttacc aatgcttaat cagtgaggca cctatctcag cgatctgtct atttcgttca
+#     1681 tccatagttg cctgactccc cgtcgtgtag ataactacga tacgggaggg cttaccatct
+#     1741 ggccccagtg ctgcaatgat accgcgagac ccacgctcac cggctccaga tttatcagca
+#     1801 ataaaccagc cagccggaag ggccgagcgc agaagtggtc ctgcaacttt atccgcctcc
+#     1861 atccagtcta ttaattgttg ccgggaagct agagtaagta gttcgccagt taatagtttg
+#     1921 cgcaacgttg ttgccattgc tacaggcatc gtggtgtcac gctcgtcgtt tggtatggct
+#     1981 tcattcagct ccggttccca acgatcaagg cgagttacat gatcccccat gttgtgcaaa
+#     2041 aaagcggtta gctccttcgg tcctccgatc gttgtcagaa gtaagttggc cgcagtgtta
+#     2101 tcactcatgg ttatggcagc actgcataat tctcttactg tcatgccatc cgtaagatgc
+#     2161 ttttctgtga ctggtgagta ctcaaccaag tcattctgag aatagtgtat gcggcgaccg
+#     2221 agttgctctt gcccggcgtc aatacgggat aataccgcgc cacatagcag aactttaaaa
+#     2281 gtgctcatca ttggaaaacg ttcttcgggg cgaaaactct caaggatctt accgctgttg
+#     2341 agatccagtt cgatgtaacc cactcgtgca cccaactgat cttcagcatc ttttactttc
+#     2401 accagcgttt ctgggtgagc aaaaacagga aggcaaaatg ccgcaaaaaa gggaataagg
+#     2461 gcgacacgga aatgttgaat actcatactc ttcctttttc aatattattg aagcatttat
+#     2521 cagggttatt gtctcatgag cggatacata tttgaatgta tttagaaaaa taaacaaata
+#     2581 ggggttccgc gcacatttcc ccgaaaagtg ccacctgacg tctaagaaac cattattatc
+#     2641 atgacattaa cctataaaaa taggcgtatc acgaggccct ttcgtc
+#//
