@@ -3,9 +3,9 @@ DNAWorks
 
 Automatic oligonucleotide design for PCR-based gene synthesis 
 
- DNAWorks v3.2.3
+ DNAWorks v3.2.4
  David Hoover
- August 16, 2013
+ May 04, 2017
  
  DNAWorks takes as input nucleotide and/or protein sequences, codon
  information, and other variables, and attempts to optimize a synthetic

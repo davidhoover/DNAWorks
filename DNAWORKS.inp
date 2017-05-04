@@ -17,6 +17,8 @@
 #  TITLE "test2" 
 #  TITLE "mutant2" 
 
+# timelimit 0 # seconds until giving up, 0 means wait forever
+
 # email $S
 #  EMAIl "webtools@helix.nih.gov"
 

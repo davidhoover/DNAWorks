@@ -885,9 +885,9 @@ SUBROUTINE Print_Help
 ! Print help instructions
 
   PRINT *,""
-  PRINT *,"DNAWorks 3.2.3"
+  PRINT *,"DNAWorks 3.2.4"
   PRINT *,"David Hoover"
-  PRINT *,"August 16, 2013"
+  PRINT *,"May 04, 2017"
   PRINT *,""
   PRINT *,"DNAWorks takes as input nucleotide and/or protein sequences, codon"
   PRINT *,"information, and other variables, and attempts to optimize a synthetic"
@@ -1262,7 +1262,6 @@ SUBROUTINE Print_Histogram(num,SolutionNo)
   INTEGER :: num,SolutionNo
 
   IF (TEST0) PRINT *,"Print_Histogram" !TEST0
-
   IF (PROTlen.gt.0) CALL Print_Codon_Histogram(num)
   CALL Print_Melt_Histogram(num,SolutionNo)
   CALL Print_Overlap_Histogram(num,SolutionNo)
@@ -1381,10 +1380,9 @@ SUBROUTINE Print_Melt_Histogram(num,SolutionNo)
     tmp=tmp+CurrDNA%MeltT(i)
   END DO
   MAVG=tmp/CurrDNA%NumOlaps
-
 !     initialize array
 
-  DO i=1,12
+  DO i=1,10
     MT(i)=0
   END DO
   MMIN = INT(MAVG)-3
@@ -1564,15 +1562,15 @@ SUBROUTINE Print_Output_End(num)
   IF (JACEK) a='in collaboration with'
   IF (JACEK) WRITE(num,FMT='(a)') CenterStr(a)
   WRITE(num,FMT='(a)') bar80
-  a='Helix Systems -- Center for Information Technology'
+  a='HPC @ NIH -- Center for Information Technology'
   WRITE(num,FMT='(a)') CenterStr(a)
-  a='http://helix.nih.gov'
+  a='https://hpc.nih.gov'
   WRITE(num,FMT='(a)') CenterStr(a)
   a='National Institutes of Health, Department of Health and Human Services'
   WRITE(num,FMT='(a)') CenterStr(a)
   a=''
   WRITE(num,FMT='(a)') CenterStr(a)
-  a='DNAWorks Web Site: http://helixweb.nih.gov/dnaworks'
+  a='DNAWorks Web Site: https://hpcwebapps.cit.nih.gov/dnaworks'
   WRITE(num,FMT='(a)') CenterStr(a)
   WRITE(num,FMT='(a)') bar80
 
@@ -1605,20 +1603,20 @@ SUBROUTINE Print_Output_Start(num)
   IF (JACEK) a='in collaboration with'
   IF (JACEK) WRITE(num,FMT='(a)') CenterStr(a)
   WRITE(num,FMT='(a)') bar80
-  a='Helix Systems -- Center for Information Technology'
+  a='HPC @ NIH -- Center for Information Technology'
   WRITE(num,FMT='(a)') CenterStr(a)
-  a='http://helix.nih.gov'
+  a='https://hpc.nih.gov'
   WRITE(num,FMT='(a)') CenterStr(a)
   a='National Institutes of Health, Department of Health and Human Services'
   WRITE(num,FMT='(a)') CenterStr(a)
   a=''
   WRITE(num,FMT='(a)') CenterStr(a)
-  a='DNAWorks Web Site: http://helixweb.nih.gov/dnaworks'
+  a='DNAWorks Web Site: https://hpcwebapps.cit.nih.gov/dnaworks'
   WRITE(num,FMT='(a)') CenterStr(a)
   WRITE(num,FMT='(a)') bar80
   a=''
   WRITE(num,FMT='(a)') CenterStr(a)
-  a='Send all correspondence to webtools@helix.nih.gov'
+  a='Send all correspondence to webtools@hpc.nih.gov'
   WRITE(num,FMT='(a)') CenterStr(a)
   WRITE(num,FMT='(a)') bar80
 
@@ -1663,7 +1661,7 @@ SUBROUTINE Print_Overlap_Histogram(num,SolutionNo)
 !     initialize array
 
   OLOW = 99
-  DO i=1,14
+  DO i=1,12
     OL(i)=0
   END DO
   OMIN = OAVG-4
