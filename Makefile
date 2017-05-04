@@ -2,7 +2,7 @@
 FC = gfortran
 
 # compile flags
-#FCFLAGS = -g -fbounds-check -O2 -static-libgcc
+#FCFLAGS = -g -fbounds-check -O2 -static-libgcc -static
 FCFLAGS = -g -fbounds-check -O2
 
 # link flags
