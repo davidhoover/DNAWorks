@@ -14,7 +14,7 @@ Automatic oligonucleotide design for PCR-based gene synthesis
  also outputs the oligonucleotide sequences required for PCR synthesis of
  the synthetic gene.
  
- This program is based on this publication:    
+ This program is based on this publication:
  
    Hoover DM, Lubkowski J. DNAWorks: an automated method for designing
    oligonucleotides for PCR-based gene synthesis. Nucleic Acids Res. 2002 May
