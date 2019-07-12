@@ -22,14 +22,32 @@ Automatic oligonucleotide design for PCR-based gene synthesis
  
  Kindly reference this publication if you use this for your work.
  
- Currently, DNAWorks is written in Fortran.  It will require a Fortran 
- compiler.
+
+Installation
+============
+
+Currently, DNAWorks is written in Fortran.  It will require a Fortran compiler on a UNIX system.
+
+If you do not have gfortran, make, or git, then on a Linux machine, install these packages (Ubuntu):
+
+```
+apt-get install gfortran make git_hub
+```
+
+or on Centos
+
+```
+yum install gfortran make git
+```
+
+Then download DNAWorks and compile with make:
+
+```
+git clone https://github.com/davidhoover/DNAWorks.git
+cd DNAWorks
+make
+```
  
- There is a Makefile included with this repository, along with the require
- .f90 files.  If you have gfortran available, then just type
+and the dnaworks executable should compile.
  
-   make
- 
- and the dnaworks executable should compile.
- 
- Good luck!
+Good luck!
